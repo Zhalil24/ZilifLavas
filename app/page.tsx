@@ -8,7 +8,6 @@ import foto3 from "../public/assets/foto3.jpg";
 import foto4 from "../public/assets/foto4.jpg";
 import { Header } from "./components/Header";
 import logoImage from '../public/assets/zilif.png';
-import MapComponent from "./components/Map";
 import Canvas from "./components/Canvas";
 import ContactSection from "./components/ContactSection";
 import MediaSection from "./components/MediaSection";
@@ -17,6 +16,11 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useIntl } from "react-intl";
 import FAQ from "./components/Faq";
 
+import dynamic from "next/dynamic";
+
+const MapComponent = dynamic(() => import("@/app/components/Map"), {
+  ssr: false,
+});
 
 const carouselImages = [foto1, foto2, foto3, foto4];
 export default function Home() {
