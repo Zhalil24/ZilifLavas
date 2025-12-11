@@ -23,27 +23,6 @@ export default function MapComponent() {
                 </h2>
             </div>
 
-            <div className="w-full h-[400px]">
-                <MapContainer
-                    center={erzincan}
-                    zoom={25}
-                    scrollWheelZoom={true}
-                    className="h-full w-full"
-                >
-                    <TileLayer
-                        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-
-                    <Marker position={erzincan} icon={icon}>
-                        <Popup>
-                            📍 <strong>Zilif Lavaş Fırını</strong> <br />
-                            Erzincan, Türkiye
-                        </Popup>
-                    </Marker>
-                </MapContainer>
-
-            </div>
 
             <div className="p-4 text-sm text-gray-700 bg-gray-50 border-t">
                 <strong>{intl.formatMessage({ id: "asi" })}:</strong> Merkez Çarşısı 13. Sok. Erzincan Merkez, Türkiye
