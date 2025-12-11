@@ -192,9 +192,7 @@ export default function Home() {
       <section id="about" >
         <AboutSection image={logoImage} paragraphs={paragraphs} waveColor="#8b0000" />
       </section>
-      <section id="location" className="w-ful bg-white text-center">
-        <MapComponent key={mapKey} />
-      </section>
+
       <Canvas />
       <section id="newsletter" className="bg-white py-5 px-6 md:px-12">
         <MediaSection />
