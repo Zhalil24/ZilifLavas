@@ -8,6 +8,7 @@ import foto3 from "../public/assets/foto3.jpg";
 import foto4 from "../public/assets/foto4.jpg";
 import { Header } from "./components/Header";
 import logoImage from '../public/assets/zilif.png';
+import MapComponent from "./components/Map";
 import Canvas from "./components/Canvas";
 import ContactSection from "./components/ContactSection";
 import MediaSection from "./components/MediaSection";
@@ -16,17 +17,7 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useIntl } from "react-intl";
 import FAQ from "./components/Faq";
 
-// Harita bileşenini kullandığınız dosyanın başında
-import dynamic from 'next/dynamic';
 
-// Dinamik içe aktarma ile sadece tarayıcıda yüklenmesini sağlıyoruz
-const DynamicMapComponent = dynamic(
-  () => import('./components/Map'), // MapComponent'in dosya yolu
-  { 
-    ssr: false, // 🛑 Bu, sihirli anahtar kelimedir. Sunucu Tarafı Renderlamayı devre dışı bırakır.
-    loading: () => <p>Harita Yükleniyor...</p> // Yüklenirken gösterilecek içerik
-  }
-);
 const carouselImages = [foto1, foto2, foto3, foto4];
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -198,7 +189,7 @@ export default function Home() {
         <AboutSection image={logoImage} paragraphs={paragraphs} waveColor="#8b0000" />
       </section>
       <section id="location" className="w-ful bg-white text-center">
-        <DynamicMapComponent />
+        <MapComponent key={mapKey} />
       </section>
       <Canvas />
       <section id="newsletter" className="bg-white py-5 px-6 md:px-12">
